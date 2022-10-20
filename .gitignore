@@ -1,1 +1,5 @@
 /DriverSetup
+/pom.xml
+/src/main/resources/chromedriver.exe
+/.idea/
+/target/
