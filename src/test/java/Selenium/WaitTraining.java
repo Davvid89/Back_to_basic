@@ -48,7 +48,6 @@ public class WaitTraining {
         basketButton.click();
         driver.findElement(By.id("coupon_code")).sendKeys("10procent");
         acceptCoupon();
-//        driver.findElement(By.cssSelector("div.coupon [name='apply_coupon']")).click();
         Thread.sleep(2000);
         errorMessageText = getCorrectMSG();
         expectedMessage = "Kupon został pomyślnie użyty.";
