@@ -3,3 +3,5 @@
 /src/main/resources/chromedriver.exe
 /.idea/
 /target/
+/src/main/resources/geckodriver.exe
+/src/main/resources/operadriver.exe

@@ -1,5 +1,6 @@
 package Selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ public class DropdownTraining {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         DesiredCapabilities capabilities = new DesiredCapabilities();

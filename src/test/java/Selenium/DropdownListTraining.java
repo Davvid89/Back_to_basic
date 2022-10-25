@@ -1,5 +1,6 @@
 package Selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,17 +24,18 @@ public class DropdownListTraining {
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        options.merge(capabilities);
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.navigate().to("https://fakestore.testelka.pl/");
-        driver.findElement(By.cssSelector(".woocommerce-store-notice__dismiss-link")).click();
         driver.manage().window().maximize();
+        driver.findElement(By.cssSelector(".woocommerce-store-notice__dismiss-link")).click();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
     }
 
     @AfterEach

@@ -1,5 +1,6 @@
 package Selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,9 +23,8 @@ public class WindowTraining {
 
     @BeforeEach
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.navigate().to("https://fakestore.testelka.pl");
         driver.manage().window().maximize();
